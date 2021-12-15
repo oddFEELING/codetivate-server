@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes.js');
 const mongoose = require('mongoose');
-const { calculateObjectSize } = require('bson');
 
 //--------------------------------------->  Instances and middleware
 const app = express(); //-->  app instance
@@ -13,7 +12,7 @@ app.use(cors()); //-->  cross origin resource sharing
 app.use(bodyParser.json()); //-->  parse incoming data to JSON format
 
 app.use('/', routes);
-const usePort = PORT || process.env.PORT;
+const usePort = process.env.PORT || PORT;
 
 //-->  try connect to database
 try {
