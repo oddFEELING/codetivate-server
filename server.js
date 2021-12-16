@@ -1,6 +1,5 @@
 //--------------------------------------->  imports
 const express = require('express');
-const { PORT, MONGODB_KEY } = require('./config');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const routes = require('./routes.js');
@@ -12,17 +11,16 @@ app.use(cors()); //-->  cross origin resource sharing
 app.use(bodyParser.json()); //-->  parse incoming data to JSON format
 
 app.use('/', routes);
-const usePort = process.env.PORT || PORT;
 
 //-->  try connect to database
 try {
-  mongoose.connect(MONGODB_KEY);
+  mongoose.connect(process.env.MONGODB_KEY);
 } catch (err) {
   console.log(`Error connecting to database ${err}`);
 }
 
 //--------------------------------------->  start express app
-app.listen(usePort, () => {
+app.listen(process.env.PORT || 80, () => {
   console.log(`Express server started on PORT: ${PORT}`);
 });
 
