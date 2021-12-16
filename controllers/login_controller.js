@@ -4,11 +4,11 @@ const UserAccount = require('../models/UserModel.js');
 
 const userLogin = async (req, res) => {
   let reqData = req.body;
-  console.log(`Login request with -->${reqData}`);
+  console.log(reqData);
 
   try {
     //   get user with email
-    const User = await UserAccount.findOne({ email: reqData.email }).pretty();
+    const User = await UserAccount.findOne({ email: reqData.email }).lean();
 
     // check password encryption
     if (await bcrypt.compare(reqData.password, User.password)) {
