@@ -21,7 +21,5 @@ try {
 
 //--------------------------------------->  start express app
 app.listen(process.env.PORT || 3001, () => {
-  console.log(`Express server started on PORT: ${PORT}`);
+  console.log(`Express server started`);
 });
-
-module.exports = app;
