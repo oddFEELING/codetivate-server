@@ -4,6 +4,7 @@ const UserAccount = require('../models/UserModel.js');
 
 const userLogin = async (req, res) => {
   let reqData = req.body;
+  console.log(`Login request with -->${reqData}`);
 
   try {
     //   get user with email
@@ -24,6 +25,7 @@ const userLogin = async (req, res) => {
       res.json({
         status: 'ok',
         message: 'logged in',
+        data: UserData,
         token: token,
       });
     } else {

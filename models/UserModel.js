@@ -23,6 +23,18 @@ const UserSchema = new Schema(
       required: true,
       unique: true,
     },
+    stocks: {
+      type: Array,
+      default: [],
+    },
+    crypto: {
+      type: Array,
+      default: [],
+    },
+    forex: {
+      type: Array,
+      default: [],
+    },
   },
   { collection: 'users' }
 );

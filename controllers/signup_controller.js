@@ -4,7 +4,8 @@ const UserAccount = require('../models/UserModel');
 
 const userSignup = async (req, res) => {
   let reqData = req.body;
-  reqData.password = bcrypt.hash(reqData.password, 10); //-->  encrypt password
+  console.log(`Sign up request with --> ${reqData}`);
+  reqData.password = await bcrypt.hash(reqData.password, 10); //-->  encrypt password
 
   //-->  create new user with request data
   try {
@@ -26,6 +27,7 @@ const userSignup = async (req, res) => {
     res.json({
       status: '0k',
       message: 'User Created',
+      data: UserData,
       token: token,
     });
   } catch (err) {
