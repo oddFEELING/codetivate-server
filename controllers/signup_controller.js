@@ -4,7 +4,7 @@ const UserAccount = require('../models/UserModel');
 
 const userSignup = async (req, res) => {
   let reqData = req.body;
-  console.log(`Sign up request with --> ${reqData}`);
+  console.log(reqData);
   reqData.password = await bcrypt.hash(reqData.password, 10); //-->  encrypt password
 
   //-->  create new user with request data
