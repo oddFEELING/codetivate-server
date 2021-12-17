@@ -25,7 +25,7 @@ const UserSchema = new Schema(
     },
     investmensts: [
       {
-        type: {
+        investment_type: {
           type: String,
           default: 'Stocks',
         },
