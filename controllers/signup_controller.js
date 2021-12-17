@@ -11,14 +11,6 @@ const userSignup = async (req, res) => {
   try {
     const newUser = await UserAccount.create({
       ...reqData,
-      investments: [
-        {
-          investment_type: 'Stocks',
-          ticker_name: 'TSLA',
-          quantity: 250,
-          invested_amount: 1000,
-        },
-      ],
     });
 
     //   prepare token details
