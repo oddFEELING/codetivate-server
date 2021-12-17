@@ -15,7 +15,7 @@ const userLogin = async (req, res) => {
       const UserData = {
         id: User._id,
         firstname: User.firstname,
-        lastname: User.lastname,
+        email: User.email,
       };
 
       // sign new jwt token

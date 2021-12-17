@@ -25,8 +25,10 @@ const UserSchema = new Schema(
     },
     investments: [
       {
-        product_name: String,
-        product_type: String,
+        investment_type: String,
+        ticker_name: String,
+        quantity: Number,
+        inested_amount: Number,
       },
     ],
   },
