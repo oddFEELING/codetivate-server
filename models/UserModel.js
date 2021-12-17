@@ -28,7 +28,7 @@ const UserSchema = new Schema(
         investment_type: String,
         ticker_name: String,
         quantity: Number,
-        inested_amount: Number,
+        invested_amount: Number,
       },
     ],
   },

@@ -16,6 +16,7 @@ const userLogin = async (req, res) => {
         id: User._id,
         firstname: User.firstname,
         email: User.email,
+        investments: User.investments
       };
 
       // sign new jwt token
@@ -27,7 +28,6 @@ const userLogin = async (req, res) => {
         message: 'logged in',
         data: UserData,
         token: token,
-        investments: User.investments,
       });
     } else {
       // send fail message for password
