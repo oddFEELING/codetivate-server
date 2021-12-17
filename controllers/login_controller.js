@@ -27,6 +27,7 @@ const userLogin = async (req, res) => {
         message: 'logged in',
         data: UserData,
         token: token,
+        investments: User.investments,
       });
     } else {
       // send fail message for password

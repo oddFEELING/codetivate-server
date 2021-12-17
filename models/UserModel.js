@@ -25,23 +25,24 @@ const UserSchema = new Schema(
     },
     investmensts: [
       {
-        type: String,
+        type: {
+          type: String,
+          default: 'Stocks',
+        },
+        ticker_name: {
+          type: String,
+          default: 'TLSA',
+        },
+        quantity: {
+          type: Number,
+          default: 3000,
+        },
+        invested_amount: {
+          type: Number,
+          default: 1000,
+        },
       },
     ],
-    stocks: {
-      ticker_name: String,
-      quantity: Number,
-      invested_amount: Number,
-    },
-    crypto: {
-      ticker_name: String,
-      quantity: Number,
-      invested_amount: Number,
-    },
-    forex: {
-      ticker_name: String,
-      invested_amount: Number,
-    },
   },
   { collection: 'users' }
 );
