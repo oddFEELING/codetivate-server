@@ -2,21 +2,35 @@ const UserAccount = require('../models/UserModel');
 
 //--------------------------------------->  add investments
 const addInvestments = async (req, res) => {
-  const User = req.body;
+  const ReqData = req.body;
   console.log(`The user data is`);
   console.log(User);
-  const UserId = User.id;
+  const UserId = ReqData.id;
+
+  //-->  GUodate entry
   try {
-    const User = await UserAccount.findOneAndUpdate(
+    await UserAccount.updateOne(
       { _id: UserId },
-      { $set: { investments: [...investments, User.data] } },
+      { $set: { investments: [...investments, ReqData.data] } },
       { returnOriginal: false }
     )
       .then((res) => {
-        res.json({ status: 'ok', message: 'Data updated', data: res });
+        console.log(`Entry updated`);
       })
       .catch((err) => {
-        res.json({ status: 'bad', message: `Error --> ${err}`, data: res });
+        console.log(`Error updating entry`);
+      });
+  } catch (err) {
+    throw err;
+  }
+
+  try {
+    const User = await UserAccount.findOne({ _id: User })
+      .then((res) => {
+        res.json({ status: 'ok', message: 'Data found', data: res });
+      })
+      .then((err) => {
+        res.json({ status: 'bad', message: `Error --> ${err}` });
       });
   } catch (err) {
     throw err;
