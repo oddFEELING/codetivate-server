@@ -23,8 +23,17 @@ const UserSchema = new Schema(
       required: true,
       unique: true,
     },
-    stocks: { type: String },
-    crypto: { type: String },
+    investments: {
+      type: Array,
+      default: [
+        {
+          investment_type: { type: String, default: 'stocks' },
+          ticker_name: { type: String, default: 'TSLA' },
+          quantity: { type: Number, default: 'stocks' },
+          invested_amount: { type: Number, default: 'stocks' },
+        },
+      ],
+    },
   },
   { collection: 'users' }
 );
