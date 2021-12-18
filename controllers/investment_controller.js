@@ -3,6 +3,8 @@ const UserAccount = require('../models/UserModel');
 //--------------------------------------->  add investments
 const addInvestments = async (req, res) => {
   const User = req.body;
+  console.log(`The user data is`);
+  console.log(User);
   const UserId = User.id;
   try {
     const User = await UserAccount.findOneAndUpdate(
