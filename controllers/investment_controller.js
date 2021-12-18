@@ -9,30 +9,23 @@ const addInvestments = async (req, res) => {
 
   // -->  try Update entry
   try {
-    await UserAccount.updateOne(
+    const newUser = await UserAccount.findOneAndUpdate(
       { _id: UserId },
       { $set: { investments: [...investments, ReqData.data] } },
       { returnOriginal: false }
-    )
-      .then((res) => {
-        console.log(`Entry updated`);
-      })
-      .catch((err) => {
-        console.log(`Error updating entry`);
-      });
-  } catch (err) {
-    console.log(err);
-  }
+    ).lean();
 
-  try {
-    const User = await UserAccount.findOne({ _id: User })
-      .then((res) => {
-        res.json({ status: 'ok', message: 'Data found', data: res });
-      })
-      .then((err) => {
-        res.json({ status: 'bad', message: `Error --> ${err}` });
-      });
+    res.json({
+      status: 'ok',
+      message: 'Update complete',
+      data: newUser.investments,
+    });
   } catch (err) {
+    res.json({
+      status: 'bad',
+      message: 'Update failed',
+      data: null,
+    });
     console.log(err);
   }
 };

@@ -7,23 +7,21 @@ const getInvestments = async (req, res) => {
 
   //-->  try to fetch data
   try {
-    await UserAccount.findOne({ _id: UserId })
-      .lean()
-      .then((res) => {
-        res.json({
-          status: 'ok',
-          message: 'Data fetched',
-          data: res.investments,
-        });
-      })
-      .catch((err) => {
-        res.json({
-          status: 'bad',
-          message: `Error --> ${err}`,
-          data: null,
-        });
-      });
+    const User = await UserAccount.findOne({ _id: UserId }).lean();
+
+    res.json({
+      status: 'ok',
+      message: 'Data fetched',
+      data: User.investments,
+    });
   } catch (err) {
+    //   return failed data
+    res.json({
+      status: 'bad',
+      message: `Error --> ${err}`,
+      data: null,
+    });
+
     console.log(err);
   }
 };
