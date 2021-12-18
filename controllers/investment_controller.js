@@ -21,7 +21,7 @@ const addInvestments = async (req, res) => {
         console.log(`Error updating entry`);
       });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 
   try {
@@ -33,7 +33,7 @@ const addInvestments = async (req, res) => {
         res.json({ status: 'bad', message: `Error --> ${err}` });
       });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 

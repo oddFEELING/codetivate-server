@@ -21,7 +21,7 @@ const getUser = async (req, res) => {
       message: 'high order fail',
       data: null,
     });
-    throw Error(err);
+    console.log(err);
   }
 };
 

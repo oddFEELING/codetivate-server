@@ -16,7 +16,7 @@ const userLogin = async (req, res) => {
         id: User._id,
         firstname: User.firstname,
         email: User.email,
-        investments: User.investments
+        investments: User.investments,
       };
 
       // sign new jwt token
@@ -45,7 +45,7 @@ const userLogin = async (req, res) => {
       token: null,
     });
 
-    throw Error(err);
+    console.log(err);
   }
 };
 

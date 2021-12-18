@@ -23,7 +23,7 @@ const getInvestments = async (req, res) => {
         });
       });
   } catch (err) {
-    throw err;
+    console.log(err);
   }
 };
 

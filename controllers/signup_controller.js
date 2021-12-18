@@ -38,7 +38,7 @@ const userSignup = async (req, res) => {
       nessage: 'high order fail',
       token: null,
     });
-    throw Error(err);
+    console.log(err);
   }
 };
 
