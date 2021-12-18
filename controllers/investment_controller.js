@@ -3,7 +3,7 @@ const UserAccount = require('../models/UserModel');
 //--------------------------------------->  add investments
 const addInvestments = async (req, res) => {
   const ReqData = req.body;
-  console.log(`The user data is ${ReqData}`);
+  console.log(ReqData);
   const UserId = ReqData.id;
   console.log(UserId);
 
