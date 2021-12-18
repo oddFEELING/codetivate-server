@@ -22,7 +22,7 @@ const addInvestments = async (req, res) => {
     res.json({
       status: 'ok',
       message: 'Update complete',
-      data: newUser.investments,
+      data: newUser,
     });
   } catch (err) {
     res.json({
