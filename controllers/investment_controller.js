@@ -11,7 +11,7 @@ const addInvestments = async (req, res) => {
   try {
     const newUser = await UserAccount.findOneAndUpdate(
       { _id: UserId },
-      { $set: { investments: [...investments, ReqData.data] } },
+      { $push: { investments: [ReqData.data] } },
       { returnOriginal: false }
     )
       .lean()
