@@ -18,7 +18,7 @@ const userSignup = async (req, res) => {
       id: newUser._id,
       firstname: newUser.firstname,
       email: newUser.email,
-      investmenst: User.investments,
+      investments: newUser.investments,
     };
 
     //   encode details in jwt
