@@ -1,5 +1,11 @@
 const express = require('express');
-const { login, signup, getUser } = require('./controllers/switch');
+const {
+  login,
+  signup,
+  getUser,
+  addInvestments,
+  getInvestments,
+} = require('./controllers/switch');
 
 const router = express.Router(); //-->  router object
 
@@ -13,6 +19,8 @@ router.get('/', (req, res) => {
 router.post('/_api/user/signup', signup);
 router.post('/_api/user/login', login);
 router.post('/_api/user/get', getUser);
+router.post('/_api/user/add_investment', addInvestments);
+router.post('/_api/user/get_investment', getInvestments);
 
 //--------------------------------------->  analysis routes
 // router.post('/_api/analysis/data');
