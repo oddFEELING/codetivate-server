@@ -11,9 +11,7 @@ const router = express.Router(); //-->  router object
 
 //--------------------------------------->  home route
 router.get('/', (req, res) => {
-  res.send(
-    'Welcome to the Codetivate backend API root route....updates coming soon.'
-  );
+  res.send({ status: 'ok', message: 'Welcome to oddSPACE team backend' });
 });
 //--------------------------------------->  user routes
 router.post('/_api/user/signup', signup);
@@ -23,7 +21,7 @@ router.post('/_api/user/add_investment', addInvestments);
 router.post('/_api/user/get_investment', getInvestments);
 
 //--------------------------------------->  analysis routes
-// router.post('/_api/analysis/data');
+router.post('/_api/analysis/data');
 //--------------------------------------->
 
 module.exports = router;

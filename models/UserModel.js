@@ -29,8 +29,16 @@ const UserSchema = new Schema(
         ticker_name: String,
         quantity: Number,
         invested_amount: Number,
+        rsi: Number,
+        div_growth: Number,
+        volatility: Number,
       },
     ],
+    analysis: {
+      port_perf: Number,
+      total_div: Number,
+      avg_rsi: Number,
+    },
   },
   { collection: 'users' }
 );
