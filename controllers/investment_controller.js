@@ -13,7 +13,11 @@ const addInvestments = async (req, res) => {
       { _id: UserId },
       { $set: { investments: [...investments, ReqData.data] } },
       { returnOriginal: false }
-    ).lean();
+    )
+      .lean()
+      .catch((err) => {
+        res.json({ status: 'bad', message: `Error --> ${err}`, data: null });
+      });
 
     res.json({
       status: 'ok',
