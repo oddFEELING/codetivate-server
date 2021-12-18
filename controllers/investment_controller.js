@@ -1,7 +1,7 @@
 const UserAccount = require('../models/UserModel');
 
 //--------------------------------------->  add investments
-export const addInvestments = async (req, res) => {
+const addInvestments = async (req, res) => {
   const User = req.body;
   const UserId = User.id;
   try {
@@ -22,7 +22,7 @@ export const addInvestments = async (req, res) => {
 };
 
 //--------------------------------------->  Get investments
-export const getInvestments = async (req, res) => {
+const getInvestments = async (req, res) => {
   const UserId = req.body.id;
 
   //-->  try to fetch data
@@ -47,3 +47,5 @@ export const getInvestments = async (req, res) => {
     throw err;
   }
 };
+
+module.exports = { getInvestments, addInvestments };
