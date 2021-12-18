@@ -21,7 +21,6 @@ router.post('/_api/user/login', login);
 router.post('/_api/user/get', getUser);
 router.post('/_api/user/add_investment', addInvestments);
 router.post('/_api/user/get_investment', getInvestments);
-router.get('/_api/user/add_investment', addInvestments);
 
 //--------------------------------------->  analysis routes
 // router.post('/_api/analysis/data');
