@@ -7,7 +7,13 @@ const mongoose = require('mongoose');
 
 //--------------------------------------->  Instances and middleware
 const app = express(); //-->  app instance
-app.use(cors()); //-->  cross origin resource sharing
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
+  })
+); //-->  cross origin resource sharing
 app.use(bodyParser.json()); //-->  parse incoming data to JSON format
 
 app.use('/', routes);
