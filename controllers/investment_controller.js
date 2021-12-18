@@ -2,10 +2,10 @@ const UserAccount = require('../models/UserModel');
 
 //--------------------------------------->  add investments
 const addInvestments = async (req, res) => {
-  const ReqData = req.body;
-  console.log(`The user data is`);
-  console.log(User);
-  const UserId = ReqData.id;
+  // const ReqData = req.body;
+  // console.log(`The user data is`);
+  // console.log(User);
+  // const UserId = ReqData.id;
 
   res.send('New test page');
 
@@ -39,31 +39,4 @@ const addInvestments = async (req, res) => {
   // }
 };
 
-//--------------------------------------->  Get investments
-const getInvestments = async (req, res) => {
-  const UserId = req.body.id;
-
-  //-->  try to fetch data
-  try {
-    const User = await UserAccount.findOne({ _id: UserId })
-      .lean()
-      .then((res) => {
-        res.json({
-          status: 'ok',
-          message: 'Data fetched',
-          data: User.investments,
-        });
-      })
-      .catch((err) => {
-        res.json({
-          status: 'bad',
-          message: `Error --> ${err}`,
-          data: null,
-        });
-      });
-  } catch (err) {
-    throw err;
-  }
-};
-
-module.exports = { getInvestments, addInvestments };
+module.exports = addInvestments;
