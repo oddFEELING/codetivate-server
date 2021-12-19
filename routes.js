@@ -29,7 +29,7 @@ const welcomeMessage = {
 //--------------------------------------->  home route
 router.get('/', (req, res) => {
   res.send(
-    <div>
+    `  <div>
       <h3>Status: {welcomeMessage.status}</h3>
       <h1>{welcomeMessage.message}</h1>
       {welcomeMessage.routes.map((data) => {
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
           </h2>
         );
       })}
-    </div>
+    </div>`
   );
 });
 //--------------------------------------->  user routes
