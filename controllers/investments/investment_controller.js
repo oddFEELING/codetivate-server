@@ -1,4 +1,4 @@
-const UserAccount = require('../models/UserModel');
+const UserAccount = require('../../models/UserModel');
 
 //--------------------------------------->  add investments
 const addInvestments = async (req, res) => {
