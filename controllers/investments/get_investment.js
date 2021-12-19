@@ -1,4 +1,4 @@
-const UserAccount = require('../models/UserModel');
+const UserAccount = require('../../models/UserModel');
 
 //--------------------------------------->  Get investments
 const getInvestments = async (req, res) => {
