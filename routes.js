@@ -7,38 +7,12 @@ const { login, signup, getUser } = require('./controllers/users/user_switch');
 
 const router = express.Router(); //-->  router object
 
-const welcomeMessage = {
-  status: 'ok',
-  message:
-    'Welcome to the oddSPACE team backend API for the codetivate hackathon',
-  routes: [
-    {
-      route: '/_api/user/signup',
-      method: 'POST',
-    },
-    {
-      route: '/_api/user/login',
-      method: 'POST',
-    },
-    {
-      route: '/_api/user/get',
-      method: 'POST',
-    },
-  ],
-};
 //--------------------------------------->  home route
 router.get('/', (req, res) => {
   res.send(
     `  <div>
-      <h3>Status: {welcomeMessage.status}</h3>
-      <h1>{welcomeMessage.message}</h1>
-      {welcomeMessage.routes.map((data) => {
-        return (
-          <h2>
-            Route: {data.route} method: {data.method}
-          </h2>
-        );
-      })}
+    <h3>Status: Ok!</h3>
+    <h1>🌹oddSPACE team backend API root route for codetivate hackathon</h1>
     </div>`
   );
 });
