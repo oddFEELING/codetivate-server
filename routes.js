@@ -30,14 +30,12 @@ const welcomeMessage = {
 router.get('/', (req, res) => {
   res.send(
     `  <div>
-      <h3>Status: {welcomeMessage.status}</h3>
-      <h1>{welcomeMessage.message}</h1>
-      {welcomeMessage.routes.map((data) => {
-        return (
-          <h2>
-            Route: {data.route} method: {data.method}
-          </h2>
-        );
+      <h3>Status: ${welcomeMessage.status}</h3>
+      <h1>${welcomeMessage.message}</h1>
+      ${welcomeMessage.routes.map((data) => {
+        return `<h2>
+            Route: ${data.route} method: ${data.method}
+          </h2>`;
       })}
     </div>`
   );
